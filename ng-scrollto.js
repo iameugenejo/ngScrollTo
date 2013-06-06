@@ -32,6 +32,8 @@ angular.module("ngScrollTo",[])
 
             if(el && el.length)
               el = el[0];
+            else
+              el = null;
           }
 
           if(el) //if an element is found, scroll to the element
