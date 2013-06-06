@@ -3,11 +3,13 @@ ngScrollTo
 
 Simple AngularJS scroll-to directive
 
+fiddle : http://jsfiddle.net/8Mtxc/
+
 ``` html
-<div ng-app="app">
+<div ng-app="myApp">
  <p>Top</p>
- <div ng-controller="myCtrl">
-   <a scroll-to="section1">Section 1</a>
+ <div>
+   <a scroll-to="section1">Goto Section 1</a>
  </div>
  <div style="padding-top:1000px">...</div>
  <div id="section1">
@@ -15,5 +17,8 @@ Simple AngularJS scroll-to directive
   <a scroll-to="">Back to Top</a>
  </div>
 </div>
-//
+```
+
+``` javascript
+angular.module("myApp", ["ngScrollTo"]);
 ```
