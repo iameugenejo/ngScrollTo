@@ -1,4 +1,4 @@
-// Version 0.0.1
+// Version 0.0.2
 // AngularJS simple hash-tag scroll alternative
 // this directive uses click event to scroll to the target element
 //
@@ -24,7 +24,9 @@ angular.module("ngScrollTo",[])
         var document = $window.document;
         
         function scrollInto(idOrName) {//find element with the give id of name and scroll to the first element it finds
-  
+          if(!idOrName) //move to top if idOrName is not provided
+            $window.scrollTo(0, 0);
+
           //check if an element can be found with id attribute
           var el = document.getElementById(idOrName);
           if(!el) {//check if an element can be found with name attribute if there is no such id
@@ -38,8 +40,7 @@ angular.module("ngScrollTo",[])
 
           if(el) //if an element is found, scroll to the element
             el.scrollIntoView();
-          else //otherwise, scroll to the top of the page
-            $window.scrollTo(0, 0);
+          //otherwise, ignore
         }
 
         return function(scope, element, attr) {
