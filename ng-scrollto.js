@@ -16,7 +16,7 @@
 //  angular.module('app', ['ngScrollTo']);
 
 angular.module("ngScrollTo",[])
-  .directive("scrollTo", ["$window","$parse", function($window, $parse){
+  .directive("scrollTo", ["$window", function($window){
     return {
       restrict : "AC",
       compile : function(){
