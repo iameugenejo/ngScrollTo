@@ -3,7 +3,7 @@ ngScrollTo
 
 Simple AngularJS scroll-to directive
 
-fiddle : http://jsfiddle.net/8Mtxc/
+fiddle : http://jsfiddle.net/8Mtxc/1/
 
 ``` html
 <div ng-app="myApp">
@@ -22,3 +22,7 @@ fiddle : http://jsfiddle.net/8Mtxc/
 ``` javascript
 angular.module("myApp", ["ngScrollTo"]);
 ```
+
+Update 0.0.2
+* Made scrolling-to-top gets detected before searching for the target DOM element. (This change makes broken scroll-to link to be ignored instead of scrolling to top)
+* Removed unnecessary $parse dependency
