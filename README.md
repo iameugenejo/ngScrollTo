@@ -23,6 +23,9 @@ fiddle : http://jsfiddle.net/8Mtxc/1/
 angular.module("myApp", ["ngScrollTo"]);
 ```
 
+Update 0.0.3
+* Added optional offset attribute. The optional offset attribute allows scrolling an element into view and offset it by a specified number of pixels.
+
 Update 0.0.2
 * Made scrolling-to-top gets detected before searching for the target DOM element. (This change makes broken scroll-to link to be ignored instead of scrolling to top)
 * Removed unnecessary $parse dependency
