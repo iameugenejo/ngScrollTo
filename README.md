@@ -19,9 +19,22 @@ fiddle : http://jsfiddle.net/8Mtxc/1/
 </div>
 ```
 
+Its also possible to use ScrollTo service to scroll programatically.
+
+
+``` javascript
+ScrollTo.idOrName('section1');
+```
+
+All you have to do is simply add dependency to your application.
+
+
 ``` javascript
 angular.module("myApp", ["ngScrollTo"]);
-```
+---
+
+Update 0.0.4
+* Added ScrollTo service for programatically scrolling.
 
 Update 0.0.3
 * Added optional offset attribute. The optional offset attribute allows scrolling an element into view and offset it by a specified number of pixels.
