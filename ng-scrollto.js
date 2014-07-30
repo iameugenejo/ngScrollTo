@@ -20,15 +20,15 @@
 
 angular.module('ngScrollTo', []);
 
-angular.module("ngScrollTo")
-  .directive("scrollTo", ["ScrollTo", function(ScrollTo){
+angular.module('ngScrollTo')
+  .directive('scrollTo', ['ScrollTo', function(ScrollTo){
     return {
       restrict : "AC",
       compile : function(){
         
         return function(scope, element, attr) {
           element.bind("click", function(event){
-            scrollTo.idOrName(attr.scrollTo, attr.offset);
+            ScrollTo.idOrName(attr.scrollTo, attr.offset);
           });
         };
       }
@@ -70,3 +70,4 @@ angular.module("ngScrollTo")
       }
 
   }]); 
+
