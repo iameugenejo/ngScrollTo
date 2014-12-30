@@ -3,7 +3,7 @@ ngScrollTo
 
 Simple AngularJS scroll-to directive
 
-fiddle : http://jsfiddle.net/8Mtxc/1/
+fiddle : [http://jsfiddle.net/8Mtxc/86/](http://jsfiddle.net/8Mtxc/86/)
 
 ``` html
 <div ng-app="myApp">
@@ -19,19 +19,30 @@ fiddle : http://jsfiddle.net/8Mtxc/1/
 </div>
 ```
 
-Its also possible to use ScrollTo service directly.
 
-
-``` javascript
-ScrollTo.idOrName('section1');
-```
-
-Just add dependency to your application.
-
+##Usage
+###Default
 
 ``` javascript
 angular.module("myApp", ["ngScrollTo"]);
 ```
+###Custom action
+Example: [http://jsfiddle.net/8Mtxc/85/](http://jsfiddle.net/8Mtxc/85/)
+``` javascript
+
+angular.module("myApp", ["ngScrollTo"])
+.config(function(ngScrollToOptionsProvider) {
+    ngScrollToOptionsProvider.extend({
+        handler: function(el) {
+          $(el).scrollintoview();
+        }
+    });
+});
+
+```
+Update 0.0.5
+* Added ngScrollToOptions provider.
+* Made scrollIntoView to be replaced by a custom function.
 
 Update 0.0.4
 * Added ScrollTo service for programatically scrolling.
@@ -41,4 +52,4 @@ Update 0.0.3
 
 Update 0.0.2
 * Made scrolling-to-top gets detected before searching for the target DOM element. (This change makes broken scroll-to link to be ignored instead of scrolling to top)
-* Removed unnecessary $parse dependency
+* Removed unnecessary $parse dependency.
