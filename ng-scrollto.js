@@ -33,10 +33,8 @@ angular.module('ngScrollTo')
         };
       }
     };
-}]);
-
-angular.module("ngScrollTo")
-  .service('ScrollTo', ['$window', function($window) {
+  }])
+  .service('ScrollTo', ['$window', 'ngScrollToOptions', function($window, ngScrollToOptions) {
 
     this.idOrName = function (idOrName, offset, focus) {//find element with the given id or name and scroll to the first element it finds
         var document = $window.document;
@@ -64,17 +62,32 @@ angular.module("ngScrollTo")
           if (focus) {
               el.focus();
           }
-          if (offset) {
-            var top = $(el).offset().top - offset;
-            window.scrollTo(0, top);
-          }
-          else {
-            el.scrollIntoView();
-          }
+
+          ngScrollToOptions.handler(el, offset);
         }
         
         //otherwise, ignore
       }
 
-  }]); 
+  }])
+  .provider("ngScrollToOptions", function() {
+    this.options = {
+      handler : function(el, offset) {
+        if (offset) {
+          var top = $(el).offset().top - offset;
+          window.scrollTo(0, top);
+        }
+        else {
+          el.scrollIntoView();
+        }
+      }
+    };
+    this.$get = function() {
+      return this.options;
+    };
+    this.extend = function(options) {
+      this.options = angular.extend(this.options, options);
+    };
+  });
+
 
