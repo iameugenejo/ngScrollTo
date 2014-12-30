@@ -42,7 +42,7 @@ angular.module("myApp", ["ngScrollTo"])
 ```
 Update 0.0.5
 * Added ngScrollToOptions provider.
-* Made scrollIntoView to be replaced by a custom function.
+* Made scrollIntoView to be replaceable by a custom function.
 
 Update 0.0.4
 * Added ScrollTo service for programatically scrolling.
