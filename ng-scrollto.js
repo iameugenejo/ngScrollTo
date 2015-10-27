@@ -28,6 +28,7 @@ angular.module('ngScrollTo')
         
         return function(scope, element, attr) {
           element.bind("click", function(event){
+            event.preventDefault();
             ScrollTo.idOrName(attr.scrollTo, attr.offset);
           });
         };
