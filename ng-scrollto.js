@@ -75,7 +75,7 @@ angular.module('ngScrollTo')
     this.options = {
       handler : function(el, offset) {
         if (offset) {
-          var top = $(el).offset().top - offset;
+          var top = el.getBoundingClientRect().top + el.ownerDocument.body.scrollTop - offset;
           window.scrollTo(0, top);
         }
         else {
