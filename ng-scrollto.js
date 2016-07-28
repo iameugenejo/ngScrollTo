@@ -1,4 +1,4 @@
-// Version 0.0.5
+// Version 0.0.5-fix
 // AngularJS simple hash-tag scroll alternative
 // this directive uses click event to scroll to the target element
 //
@@ -27,10 +27,18 @@ angular.module('ngScrollTo')
       compile : function(){
         
         return function(scope, element, attr) {
-          element.bind("click", function(event){
+
+          var handler = function (event) {
             event.preventDefault();
             ScrollTo.idOrName(attr.scrollTo, attr.offset);
+          };
+
+          element.bind("click", handler);
+
+          scope.$on('$destroy', function () {
+            element.unbind("click", handler);
           });
+
         };
       }
     };
@@ -75,7 +83,7 @@ angular.module('ngScrollTo')
     this.options = {
       handler : function(el, offset) {
         if (offset) {
-          var top = $(el).offset().top - offset;
+          var top = el.getBoundingClientRect().top + el.ownerDocument.body.scrollTop - offset;
           window.scrollTo(0, top);
         }
         else {
