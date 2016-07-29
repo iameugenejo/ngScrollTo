@@ -42,7 +42,7 @@ angular.module("myApp", ["ngScrollTo"])
 ```
 Update 0.0.6
 * Remove jQuery dependency
-* unbind element on directive destroy
+* Unbind element on directive destroy
 
 Update 0.0.5
 * Added ngScrollToOptions provider.
