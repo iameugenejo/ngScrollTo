@@ -3,7 +3,7 @@ ngScrollTo
 
 Simple AngularJS scroll-to directive
 
-fiddle : [http://jsfiddle.net/8Mtxc/86/](http://jsfiddle.net/8Mtxc/86/)
+fiddle : [http://jsfiddle.net/8Mtxc/208/](http://jsfiddle.net/8Mtxc/208/)
 
 ``` html
 <div ng-app="myApp">
@@ -27,7 +27,7 @@ fiddle : [http://jsfiddle.net/8Mtxc/86/](http://jsfiddle.net/8Mtxc/86/)
 angular.module("myApp", ["ngScrollTo"]);
 ```
 ###Custom action
-Example: [http://jsfiddle.net/8Mtxc/85/](http://jsfiddle.net/8Mtxc/85/)
+Example: [http://jsfiddle.net/8Mtxc/212/](http://jsfiddle.net/8Mtxc/212/)
 ``` javascript
 
 angular.module("myApp", ["ngScrollTo"])
@@ -40,6 +40,10 @@ angular.module("myApp", ["ngScrollTo"])
 });
 
 ```
+Update 0.0.6
+* Remove jQuery dependency
+* unbind element on directive destroy
+
 Update 0.0.5
 * Added ngScrollToOptions provider.
 * Made scrollIntoView to be replaceable by a custom function.
