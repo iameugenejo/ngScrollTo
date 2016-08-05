@@ -1,5 +1,7 @@
 ngScrollTo
 ==========
+[![NPM version](https://badge.fury.io/js/ngscrollto.svg)](https://badge.fury.io/js/ngscrollto)
+[![NPM downloads](https://img.shields.io/npm/dm/ngScrollTo.svg?style=flat)](https://www.npmjs.org/package/ngScrollTo)
 
 Simple AngularJS scroll-to directive
 
