@@ -1,4 +1,4 @@
-// Version 0.0.6-fix
+// Version 0.0.7
 // AngularJS simple hash-tag scroll alternative
 // this directive uses click event to scroll to the target element
 //
