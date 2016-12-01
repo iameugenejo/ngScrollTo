@@ -46,7 +46,7 @@ angular.module('ngScrollTo')
   .service('ScrollTo', ['$window', 'ngScrollToOptions', function($window, ngScrollToOptions) {
 
     this.idOrName = function (idOrName, offset, focus) {//find element with the given id or name and scroll to the first element it finds
-        var document = $window.document;
+        var currentDocument = $window.document;
         
         if(!idOrName) {//move to top if idOrName is not provided
           $window.scrollTo(0, 0);
@@ -57,9 +57,9 @@ angular.module('ngScrollTo')
         }
 
         //check if an element can be found with id attribute
-        var el = document.getElementById(idOrName);
+        var el = currentDocument.getElementById(idOrName);
         if(!el) {//check if an element can be found with name attribute if there is no such id
-          el = document.getElementsByName(idOrName);
+          el = currentDocument.getElementsByName(idOrName);
 
           if(el && el.length)
             el = el[0];
