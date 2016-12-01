@@ -1,4 +1,4 @@
-// Version 0.0.5-fix
+// Version 0.0.6-fix
 // AngularJS simple hash-tag scroll alternative
 // this directive uses click event to scroll to the target element
 //
@@ -46,7 +46,7 @@ angular.module('ngScrollTo')
   .service('ScrollTo', ['$window', 'ngScrollToOptions', function($window, ngScrollToOptions) {
 
     this.idOrName = function (idOrName, offset, focus) {//find element with the given id or name and scroll to the first element it finds
-        var document = $window.document;
+        var currentDocument = $window.document;
         
         if(!idOrName) {//move to top if idOrName is not provided
           $window.scrollTo(0, 0);
@@ -57,9 +57,9 @@ angular.module('ngScrollTo')
         }
 
         //check if an element can be found with id attribute
-        var el = document.getElementById(idOrName);
+        var el = currentDocument.getElementById(idOrName);
         if(!el) {//check if an element can be found with name attribute if there is no such id
-          el = document.getElementsByName(idOrName);
+          el = currentDocument.getElementsByName(idOrName);
 
           if(el && el.length)
             el = el[0];
@@ -83,8 +83,12 @@ angular.module('ngScrollTo')
     this.options = {
       handler : function(el, offset) {
         if (offset) {
-          var top = el.getBoundingClientRect().top + el.ownerDocument.body.scrollTop - offset;
-          window.scrollTo(0, top);
+          var currentDocument = el.ownerDocument;
+          var currentWindow = currentDocument.defaultView || currentDocument.parentWindow; // parentWindow is for IE8-
+          var currentScrollTop = currentWindow.pageYOffset || currentDocument.documentElement.scrollTop || currentDocument.body.scrollTop || 0;
+          var scrollToY = el.getBoundingClientRect().top + currentScrollTop - offset;
+
+          currentWindow.scrollTo(0, scrollToY);
         }
         else {
           el.scrollIntoView();
