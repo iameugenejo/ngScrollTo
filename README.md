@@ -22,13 +22,13 @@ fiddle : [http://jsfiddle.net/8Mtxc/230/](http://jsfiddle.net/8Mtxc/230/)
 ```
 
 
-##Usage
-###Default
+## Usage
+### Default
 
 ``` javascript
 angular.module("myApp", ["ngScrollTo"]);
 ```
-###Custom action
+### Custom action
 Example: [http://jsfiddle.net/8Mtxc/231/](http://jsfiddle.net/8Mtxc/231/)
 ``` javascript
 
